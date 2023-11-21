@@ -81,7 +81,7 @@ function createQuantityDropdown(selectedQuantity) {
 function checkout() {
     // const total = calculateTotal(cart);
     window.location.href='payment.html';
-    sessionStorage.removeItem('cart');
+    //sessionStorage.removeItem('cart');
     displayCart([]);
 }
 document.getElementById("buyBtn").addEventListener("click", function () {

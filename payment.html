@@ -104,7 +104,7 @@
     </div>
 
     <script>
-       // let cartData = JSON.parse(sessionStorage.getItem('cart')) || [];
+        //let cartData = JSON.parse(sessionStorage.getItem('cart')) || [];
         function validateForm() {
             // Reset error messages
             
@@ -169,7 +169,12 @@
                 return false;
             }
 
-            alert('Payment successful!');
+            if (!cardNumber || !cardHolder || !expiryDate || !cvv) {
+                alert('Please fill in all the fields before making the payment.');
+                return false;
+            }
+            //return true;
+           alert('Payment successful!');
             window.location.href = "index.html";
             return false; // Prevent form submission (you can remove this line if you want to allow form submission)
         }
@@ -208,12 +213,12 @@
         }
         function processPayment() {
             
-            alert('Payment successful!');
-            //sessionStorage.removeItem('cart');
-            window.location.href="index.html";
-        }
+           // alert('Payment successful!');
+            sessionStorage.removeItem('cart');
+            //window.location.href="index.html";
+        }       
         function goBack(){
-            //sessionStorage.setItem('cart', JSON.stringify(cartData));
+           // sessionStorage.setItem('cart', JSON.stringify(cartData));
             window.location.href="cart.html";
         }
         document.addEventListener('DOMContentLoaded', function () {
