@@ -1,22 +1,16 @@
-// cart.js
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Retrieve the cart from sessionStorage
+    
     let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-
-    // Display the cart items
     displayCart(cart);
 });
-
-// Function to display cart items
 function displayCart(cart) {
     const cartItemsContainer = document.getElementById('cartItems');
     const cartTotalElement = document.getElementById('cartTotal');
 
-    // Clear previous content
+   
     cartItemsContainer.innerHTML = '';
 
-    // Display each item in the cart
+   
     cart.forEach(item => {
         const cartItemDiv = document.createElement('div');
         cartItemDiv.classList.add('cart-item');
@@ -33,18 +27,18 @@ function displayCart(cart) {
 
         itemPrice.textContent = `Price: ₹${item.price}`;
 
-        // Quantity dropdown
+        
         const quantityDropdown = createQuantityDropdown(item.quantity);
         quantityDropdown.addEventListener('change', function () {
             if (this.value === 'remove') {
-                // Remove the item from the cart when 'Remove' is selected
+                
                 cart = cart.filter(cartItem => cartItem.name !== item.name);
             } else {
-                // Update the quantity in the cart when the dropdown changes
+               
                 item.quantity = parseInt(this.value);
             }
 
-            // Save the updated cart to sessionStorage
+            
             sessionStorage.setItem('cart', JSON.stringify(cart));
             displayCart(cart);
         });
@@ -57,7 +51,6 @@ function displayCart(cart) {
         cartItemsContainer.appendChild(cartItemDiv);
     });
 
-    // Calculate and display the total
     if (cart.length > 0) {
         const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
         cartTotalElement.textContent = `Total: ₹${total.toFixed(2)}`;
@@ -65,8 +58,6 @@ function displayCart(cart) {
         cartTotalElement.textContent = 'Your shopping cart is waiting. Give it purpose fill it with groceries, clothing, household supplies, electronics and more. Happy Shopping!';
     }
 }
-
-// Function to create a quantity dropdown
 function createQuantityDropdown(selectedQuantity) {
     const dropdown = document.createElement('select');
     for (let i = 0; i <= 4; i++) {
@@ -79,9 +70,7 @@ function createQuantityDropdown(selectedQuantity) {
     return dropdown;
 }
 function checkout() {
-    // const total = calculateTotal(cart);
     window.location.href='payment.html';
-    //sessionStorage.removeItem('cart');
     displayCart([]);
 }
 document.getElementById("buyBtn").addEventListener("click", function () {

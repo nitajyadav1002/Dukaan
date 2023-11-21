@@ -156,7 +156,7 @@ ul li a.active {
 
 
 .collapsed-text {
-    height: 23px; /* Adjust the height based on your design */
+    height: 23px;
     overflow: hidden;
 }
 
@@ -171,13 +171,6 @@ ul li a.active {
     text-align: center;
 
 }
-
-/* .reviewCard:hover {
-    background-color: gray;
-    transition: 1s ease;
-    cursor: pointer;
-} */
-
 .reviews .reviewCard img {
     width: 42%;
     border-radius: 50%;
@@ -440,8 +433,6 @@ ul li a.active {
 }
 
 
-
-/* buyPage */
 
 .buyPage {
     display: none;
