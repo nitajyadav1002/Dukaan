@@ -14,7 +14,7 @@ reviews.addEventListener("click", ()=>{
     shops.style.color="white";
     blogs.style.color="white";
     contacts.style.color="white";
-})
+})  
 blogs.addEventListener("click", ()=>{
     blogs.style.color="rgb(0, 196, 196)";
     reviews.style.color="white";
@@ -67,6 +67,8 @@ function connect(){
     }
     window.location.href="index.html";
 }
+
+
 let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
 function addToCart(productName, price,imageSrc) {
   const existingProduct = cart.find(item => item.name === productName);
@@ -82,11 +84,13 @@ function openCart() {
   sessionStorage.setItem('cart', JSON.stringify(cart));
   window.location.href = 'cart.html';
 }
+
 function updateCartDisplay() {
   const cartCount = document.getElementById('cartCount');
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   cartCount.textContent = totalItems > 0 ? totalItems : '';
 }
+
 let isExpanded = false;
 const reviewText = document.getElementById('reviewText');
 const reviewText1 = document.getElementById('reviewText1');
