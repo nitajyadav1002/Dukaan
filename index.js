@@ -70,6 +70,7 @@ function connect(){
 
 
 let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+
 function addToCart(productName, price,imageSrc) {
   const existingProduct = cart.find(item => item.name === productName);
   if (existingProduct) {
